@@ -26,7 +26,7 @@ class NumberTriviaPage extends StatelessWidget {
     print('pixel height: ${size.height}');
     return Scaffold(
       appBar: AppBar(
-        title: Text('Number Trivia'),
+        title: Text(''),
       ),
       body: buildBody(context),
       // body: SingleChildScrollView(
@@ -49,10 +49,35 @@ class NumberTriviaPage extends StatelessWidget {
             // child: buildCard1(),
             child: buildCard2(),
           ),
-          Container(width: 400, child: buildColumn()),
+          Container(width: 300, child: buildColumn()),
           Expanded(
-            child: Placeholder(
-              color: Colors.blue,
+            child: Container(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 100,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(
+                            child: Container(
+                                margin: const EdgeInsets.all(8.0),
+                                child: ElevatedButton(
+                                    onPressed: () {}, child: Text('读取参数')))),
+                        Expanded(
+                            child: Container(
+                                margin: const EdgeInsets.all(8.0),
+                                child: ElevatedButton(
+                                    onPressed: () {}, child: Text('写入参数')))),
+                      ],
+                    ),
+                  ),
+                  Placeholder(
+                    color: Colors.blue,
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -60,82 +85,68 @@ class NumberTriviaPage extends StatelessWidget {
     );
   }
 
-  Column buildColumn() {
-    return Column(
-      children: [
-        Form(
-            child: Column(
+  Widget buildColumn() {
+    return Card(
+      child: Container(
+        margin: const EdgeInsets.all(4.0),
+        child: Column(
           children: [
-            TextFormField(
-              initialValue: '0',
-              style: TextStyle(fontSize: 25.0),
-              decoration: InputDecoration(labelText: '生产年月'),
-            ),
-            TextFormField(
-              initialValue: '0',
-              style: TextStyle(fontSize: 25.0),
-              decoration: InputDecoration(labelText: '归零值'),
-            ),
-            TextFormField(
-              initialValue: '0',
-              style: TextStyle(fontSize: 25.0),
-              decoration: InputDecoration(labelText: '标定值'),
-            ),
-            TextFormField(
-              initialValue: '0',
-              style: TextStyle(fontSize: 25.0),
-              decoration: InputDecoration(labelText: '微松动阈值'),
-            ),
-            TextFormField(
-              initialValue: '0',
-              style: TextStyle(fontSize: 25.0),
-              decoration: InputDecoration(labelText: '松动阈值'),
-            ),
-            TextFormField(
-              initialValue: '0',
-              style: TextStyle(fontSize: 25.0),
-              decoration: InputDecoration(labelText: '过压阈值'),
-            ),
-            TextFormField(
-              initialValue: '0',
-              style: TextStyle(fontSize: 25.0),
-              decoration: InputDecoration(labelText: '唤醒时间'),
-            ),
-            TextFormField(
-              initialValue: '0',
-              style: TextStyle(fontSize: 25.0),
-              decoration: InputDecoration(labelText: 'IP地址(域名)'),
-            ),
-            TextFormField(
-              initialValue: '0',
-              style: TextStyle(fontSize: 25.0),
-              decoration: InputDecoration(
-                labelText: '端口号',
-                // labelStyle: TextStyle(fontSize: 25.0),
-              ),
-            ),
+            Form(
+                child: Column(
+              children: [
+                TextFormField(
+                  initialValue: '0',
+                  style: TextStyle(fontSize: 25.0),
+                  decoration: InputDecoration(labelText: '生产年月'),
+                ),
+                TextFormField(
+                  initialValue: '0',
+                  style: TextStyle(fontSize: 25.0),
+                  decoration: InputDecoration(labelText: '归零值'),
+                ),
+                TextFormField(
+                  initialValue: '0',
+                  style: TextStyle(fontSize: 25.0),
+                  decoration: InputDecoration(labelText: '标定值'),
+                ),
+                TextFormField(
+                  initialValue: '0',
+                  style: TextStyle(fontSize: 25.0),
+                  decoration: InputDecoration(labelText: '微松动阈值'),
+                ),
+                TextFormField(
+                  initialValue: '0',
+                  style: TextStyle(fontSize: 25.0),
+                  decoration: InputDecoration(labelText: '松动阈值'),
+                ),
+                TextFormField(
+                  initialValue: '0',
+                  style: TextStyle(fontSize: 25.0),
+                  decoration: InputDecoration(labelText: '过压阈值'),
+                ),
+                TextFormField(
+                  initialValue: '0',
+                  style: TextStyle(fontSize: 25.0),
+                  decoration: InputDecoration(labelText: '唤醒时间'),
+                ),
+                TextFormField(
+                  initialValue: '0',
+                  style: TextStyle(fontSize: 25.0),
+                  decoration: InputDecoration(labelText: 'IP地址(域名)'),
+                ),
+                TextFormField(
+                  initialValue: '0',
+                  style: TextStyle(fontSize: 25.0),
+                  decoration: InputDecoration(
+                    labelText: '端口号',
+                    // labelStyle: TextStyle(fontSize: 25.0),
+                  ),
+                ),
+              ],
+            )),
           ],
-        )),
-        SizedBox(
-          height: 60,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Expanded(
-                  child: Container(
-                      margin: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                          onPressed: () {}, child: Text('读取参数')))),
-              Expanded(
-                  child: Container(
-                      margin: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                          onPressed: () {}, child: Text('写入参数')))),
-            ],
-          ),
-        )
-      ],
+        ),
+      ),
     );
   }
 
@@ -187,7 +198,7 @@ class NumberTriviaPage extends StatelessWidget {
         children: [
           Text(
             "HW123456788765432",
-            style: TextStyle(fontSize: 30.0),
+            style: TextStyle(fontSize: 38.0),
             textAlign: TextAlign.center,
           ),
           getWidget(test),
