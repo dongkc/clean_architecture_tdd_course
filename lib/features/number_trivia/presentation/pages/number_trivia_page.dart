@@ -45,7 +45,7 @@ class NumberTriviaPage extends StatelessWidget {
             color: Colors.blue,
           ),
           Container(
-            width: 320,
+            width: 360,
             // child: buildCard1(),
             child: buildCard2(),
           ),
@@ -114,12 +114,12 @@ class NumberTriviaPage extends StatelessWidget {
                   child: Container(
                       margin: const EdgeInsets.all(8.0),
                       child: ElevatedButton(
-                          onPressed: null, child: Text('读取参数')))),
+                          onPressed: () {}, child: Text('读取参数')))),
               Expanded(
                   child: Container(
                       margin: const EdgeInsets.all(8.0),
                       child: ElevatedButton(
-                          onPressed: null, child: Text('写入参数')))),
+                          onPressed: () {}, child: Text('写入参数')))),
             ],
           ),
         )
@@ -140,10 +140,12 @@ class NumberTriviaPage extends StatelessWidget {
               Text(
                 item.key,
                 textAlign: TextAlign.end,
+                style: TextStyle(fontSize: 30.0),
               ),
               Text(
                 item.value,
                 textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 30.0),
               ),
             ],
           );
@@ -152,7 +154,20 @@ class NumberTriviaPage extends StatelessWidget {
 
   Card buildCard2() {
     List<ParamTest> test = [
-      ParamTest("1", "2"),
+      ParamTest("报警等级:", "正常"),
+      ParamTest("固件版本:", "1.0.0"),
+      ParamTest("硬件版本:", "1.0.0"),
+      ParamTest("压力(KN):", "120.0"),
+      ParamTest("压力AD值:", "123456"),
+      ParamTest("生产年月:", "2021/01"),
+      ParamTest("归零值:", ""),
+      ParamTest("标定值:", ""),
+      ParamTest("微松动阈值:", ""),
+      ParamTest("松动阈值:", ""),
+      ParamTest("过压阈值:", ""),
+      ParamTest("唤醒时间:", ""),
+      ParamTest("IP地址(域名):", ""),
+      ParamTest("端口号:", ""),
       // ParamTest(key: "2", value: "3"),
     ];
     return Card(
