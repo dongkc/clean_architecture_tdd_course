@@ -47,40 +47,47 @@ class NumberTriviaPage extends StatelessWidget {
           Container(
             width: 400,
             // child: buildCard1(),
-            child: buildCard2(),
+            child: buildCard2(context),
           ),
           Container(width: 300, child: buildColumn()),
           Expanded(
-            child: Container(
-              child: Column(
+            child: buildContainer(context),
+          ),
+        ],
+      ),
+    );
+  }
+
+  BlocProvider<NumberTriviaBloc> buildContainer(BuildContext context) {
+    return BlocProvider(
+      create: (_) => sl<NumberTriviaBloc>(),
+      child: Container(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 100,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  SizedBox(
-                    height: 100,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Expanded(
-                            child: Container(
-                                margin: const EdgeInsets.all(8.0),
-                                child: ElevatedButton(
-                                    onPressed: () {}, child: Text('读取参数')))),
-                        Expanded(
-                            child: Container(
-                                margin: const EdgeInsets.all(8.0),
-                                child: ElevatedButton(
-                                    onPressed: () {}, child: Text('写入参数')))),
-                      ],
-                    ),
-                  ),
-                  Placeholder(
-                    color: Colors.blue,
-                  ),
+                  Expanded(
+                      child: Container(
+                          margin: const EdgeInsets.all(8.0),
+                          child: ElevatedButton(
+                              onPressed: () {}, child: Text('读取参数')))),
+                  Expanded(
+                      child: Container(
+                          margin: const EdgeInsets.all(8.0),
+                          child: ElevatedButton(
+                              onPressed: () {}, child: Text('写入参数')))),
                 ],
               ),
             ),
-          ),
-        ],
+            Placeholder(
+              color: Colors.blue,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -175,7 +182,8 @@ class NumberTriviaPage extends StatelessWidget {
         }).toList());
   }
 
-  Card buildCard2() {
+  BlocProvider<NumberTriviaBloc> buildCard2(BuildContext context) {
+    // Card buildCard2() {
     List<ParamTest> test = [
       ParamTest('报警等级:', '正常'),
       ParamTest('固件版本:', '1.0.0'),
@@ -193,104 +201,110 @@ class NumberTriviaPage extends StatelessWidget {
       ParamTest('端口号:', ''),
       // ParamTest(key: '2', value: '3'),
     ];
-    return Card(
-      child: Column(
-        children: [
-          Text(
-            'HW123456788765432',
-            style: TextStyle(fontSize: 38.0),
-            textAlign: TextAlign.center,
-          ),
-          getWidget(test),
-        ],
+    return BlocProvider(
+      create: (_) => sl<NumberTriviaBloc>(),
+      child: Card(
+        child: Column(
+          children: [
+            Text(
+              'HW123456788765432',
+              style: TextStyle(fontSize: 38.0),
+              textAlign: TextAlign.center,
+            ),
+            getWidget(test),
+          ],
+        ),
+        // child: getWidget(test),
       ),
-      // child: getWidget(test),
     );
   }
 
-  Card buildCard1() {
-    return Card(
-      child: Column(
-        children: [
-          Text(
-            'HW123456788765432',
-            style: TextStyle(fontSize: 30.0),
-            textAlign: TextAlign.center,
-          ),
-          Table(
-            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-            columnWidths: {
-              0: FlexColumnWidth(1),
-              1: FlexColumnWidth(1),
-            },
-            children: [
-              TableRow(children: [
-                Text(
-                  '报警等级:',
-                  // style: TextStyle(fontSize: 30.0),
-                  textAlign: TextAlign.end,
-                ),
-                Text(
-                  '正常',
-                  // style: TextStyle(fontSize: 30.0),
-                  textAlign: TextAlign.center,
-                ),
-              ]),
-              TableRow(children: [
-                Container(
-                  // height: 80,
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    '固件版本:',
+  BlocProvider<NumberTriviaBloc> buildCard1(BuildContext context) {
+    return BlocProvider(
+      create: (_) => sl<NumberTriviaBloc>(),
+      child: Card(
+        child: Column(
+          children: [
+            Text(
+              'HW123456788765432',
+              style: TextStyle(fontSize: 30.0),
+              textAlign: TextAlign.center,
+            ),
+            Table(
+              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+              columnWidths: {
+                0: FlexColumnWidth(1),
+                1: FlexColumnWidth(1),
+              },
+              children: [
+                TableRow(children: [
+                  Text(
+                    '报警等级:',
                     // style: TextStyle(fontSize: 30.0),
                     textAlign: TextAlign.end,
                   ),
-                ),
-                Text(
-                  '1.0.0',
-                  // style: TextStyle(fontSize: 30.0),
-                  textAlign: TextAlign.center,
-                ),
-              ]),
-              TableRow(children: [
-                Text(
-                  '硬件版本:',
-                  // style: TextStyle(fontSize: 30.0),
-                  textAlign: TextAlign.end,
-                ),
-                Text(
-                  '1.0.0',
-                  // style: TextStyle(fontSize: 30.0),
-                  textAlign: TextAlign.center,
-                ),
-              ]),
-              TableRow(children: [
-                Text(
-                  '压力(KN):',
-                  // style: TextStyle(fontSize: 30.0),
-                  textAlign: TextAlign.end,
-                ),
-                Text(
-                  '120.0',
-                  // style: TextStyle(fontSize: 30.0),
-                  textAlign: TextAlign.center,
-                ),
-              ]),
-              TableRow(children: [
-                Text(
-                  '压力AD值:',
-                  // style: TextStyle(fontSize: 30.0),
-                  textAlign: TextAlign.end,
-                ),
-                Text(
-                  '255.255.255.255',
-                  // style: TextStyle(fontSize: 20.0),
-                  textAlign: TextAlign.center,
-                ),
-              ])
-            ],
-          ),
-        ],
+                  Text(
+                    '正常',
+                    // style: TextStyle(fontSize: 30.0),
+                    textAlign: TextAlign.center,
+                  ),
+                ]),
+                TableRow(children: [
+                  Container(
+                    // height: 80,
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      '固件版本:',
+                      // style: TextStyle(fontSize: 30.0),
+                      textAlign: TextAlign.end,
+                    ),
+                  ),
+                  Text(
+                    '1.0.0',
+                    // style: TextStyle(fontSize: 30.0),
+                    textAlign: TextAlign.center,
+                  ),
+                ]),
+                TableRow(children: [
+                  Text(
+                    '硬件版本:',
+                    // style: TextStyle(fontSize: 30.0),
+                    textAlign: TextAlign.end,
+                  ),
+                  Text(
+                    '1.0.0',
+                    // style: TextStyle(fontSize: 30.0),
+                    textAlign: TextAlign.center,
+                  ),
+                ]),
+                TableRow(children: [
+                  Text(
+                    '压力(KN):',
+                    // style: TextStyle(fontSize: 30.0),
+                    textAlign: TextAlign.end,
+                  ),
+                  Text(
+                    '120.0',
+                    // style: TextStyle(fontSize: 30.0),
+                    textAlign: TextAlign.center,
+                  ),
+                ]),
+                TableRow(children: [
+                  Text(
+                    '压力AD值:',
+                    // style: TextStyle(fontSize: 30.0),
+                    textAlign: TextAlign.end,
+                  ),
+                  Text(
+                    '255.255.255.255',
+                    // style: TextStyle(fontSize: 20.0),
+                    textAlign: TextAlign.center,
+                  ),
+                ])
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
