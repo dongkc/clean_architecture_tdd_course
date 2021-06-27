@@ -177,27 +177,27 @@ class NumberTriviaPage extends StatelessWidget {
 
   Card buildCard2() {
     List<ParamTest> test = [
-      ParamTest("报警等级:", "正常"),
-      ParamTest("固件版本:", "1.0.0"),
-      ParamTest("硬件版本:", "1.0.0"),
-      ParamTest("压力(KN):", "120.0"),
-      ParamTest("压力AD值:", "123456"),
-      ParamTest("生产年月:", "2021/01"),
-      ParamTest("归零值:", ""),
-      ParamTest("标定值:", ""),
-      ParamTest("微松动阈值:", ""),
-      ParamTest("松动阈值:", ""),
-      ParamTest("过压阈值:", ""),
-      ParamTest("唤醒时间:", ""),
-      ParamTest("IP地址(域名):", "255.255.255.255"),
-      ParamTest("端口号:", ""),
-      // ParamTest(key: "2", value: "3"),
+      ParamTest('报警等级:', '正常'),
+      ParamTest('固件版本:', '1.0.0'),
+      ParamTest('硬件版本:', '1.0.0'),
+      ParamTest('压力(KN):', '120.0'),
+      ParamTest('压力AD值:', '123456'),
+      ParamTest('生产年月:', '2021/01'),
+      ParamTest('归零值:', ''),
+      ParamTest('标定值:', ''),
+      ParamTest('微松动阈值:', ''),
+      ParamTest('松动阈值:', ''),
+      ParamTest('过压阈值:', ''),
+      ParamTest('唤醒时间:', ''),
+      ParamTest('IP地址(域名):', '255.255.255.255'),
+      ParamTest('端口号:', ''),
+      // ParamTest(key: '2', value: '3'),
     ];
     return Card(
       child: Column(
         children: [
           Text(
-            "HW123456788765432",
+            'HW123456788765432',
             style: TextStyle(fontSize: 38.0),
             textAlign: TextAlign.center,
           ),
@@ -213,7 +213,7 @@ class NumberTriviaPage extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "HW123456788765432",
+            'HW123456788765432',
             style: TextStyle(fontSize: 30.0),
             textAlign: TextAlign.center,
           ),
@@ -226,12 +226,12 @@ class NumberTriviaPage extends StatelessWidget {
             children: [
               TableRow(children: [
                 Text(
-                  "报警等级:",
+                  '报警等级:',
                   // style: TextStyle(fontSize: 30.0),
                   textAlign: TextAlign.end,
                 ),
                 Text(
-                  "正常",
+                  '正常',
                   // style: TextStyle(fontSize: 30.0),
                   textAlign: TextAlign.center,
                 ),
@@ -241,49 +241,49 @@ class NumberTriviaPage extends StatelessWidget {
                   // height: 80,
                   alignment: Alignment.centerRight,
                   child: Text(
-                    "固件版本:",
+                    '固件版本:',
                     // style: TextStyle(fontSize: 30.0),
                     textAlign: TextAlign.end,
                   ),
                 ),
                 Text(
-                  "1.0.0",
+                  '1.0.0',
                   // style: TextStyle(fontSize: 30.0),
                   textAlign: TextAlign.center,
                 ),
               ]),
               TableRow(children: [
                 Text(
-                  "硬件版本:",
+                  '硬件版本:',
                   // style: TextStyle(fontSize: 30.0),
                   textAlign: TextAlign.end,
                 ),
                 Text(
-                  "1.0.0",
+                  '1.0.0',
                   // style: TextStyle(fontSize: 30.0),
                   textAlign: TextAlign.center,
                 ),
               ]),
               TableRow(children: [
                 Text(
-                  "压力(KN):",
+                  '压力(KN):',
                   // style: TextStyle(fontSize: 30.0),
                   textAlign: TextAlign.end,
                 ),
                 Text(
-                  "120.0",
+                  '120.0',
                   // style: TextStyle(fontSize: 30.0),
                   textAlign: TextAlign.center,
                 ),
               ]),
               TableRow(children: [
                 Text(
-                  "压力AD值:",
+                  '压力AD值:',
                   // style: TextStyle(fontSize: 30.0),
                   textAlign: TextAlign.end,
                 ),
                 Text(
-                  "255.255.255.255",
+                  '255.255.255.255',
                   // style: TextStyle(fontSize: 20.0),
                   textAlign: TextAlign.center,
                 ),
