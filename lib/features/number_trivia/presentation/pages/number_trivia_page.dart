@@ -47,6 +47,7 @@ class NumberTriviaPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   Table(
+                    defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                     columnWidths: {
                       0: FlexColumnWidth(1),
                       1: FlexColumnWidth(1),
@@ -65,10 +66,13 @@ class NumberTriviaPage extends StatelessWidget {
                         ),
                       ]),
                       TableRow(children: [
-                        Text(
-                          "固件版本:",
-                          style: TextStyle(fontSize: 30.0),
-                          textAlign: TextAlign.end,
+                        SizedBox(
+                          height: 50,
+                          child: Text(
+                            "固件版本:",
+                            style: TextStyle(fontSize: 30.0),
+                            textAlign: TextAlign.end,
+                          ),
                         ),
                         Text(
                           "1.0.0",
@@ -107,16 +111,12 @@ class NumberTriviaPage extends StatelessWidget {
                           textAlign: TextAlign.end,
                         ),
                         Text(
-                          "12222",
-                          style: TextStyle(fontSize: 30.0),
+                          "255.255.255.255",
+                          style: TextStyle(fontSize: 20.0),
                           textAlign: TextAlign.center,
                         ),
                       ])
                     ],
-                  ),
-                  Placeholder(
-                    color: Colors.red,
-                    fallbackWidth: 200,
                   ),
                 ],
               ),
