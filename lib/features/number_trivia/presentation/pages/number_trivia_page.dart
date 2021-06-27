@@ -17,14 +17,14 @@ class NumberTriviaPage extends StatelessWidget {
     print('pixel width: ${size.width}');
     print('pixel height: ${size.height}');
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Number Trivia'),
-        ),
-        body: buildBody(context),
-        // body: SingleChildScrollView(
-        //   child: buildBody(context),
-        // ),
-        );
+      appBar: AppBar(
+        title: Text('Number Trivia'),
+      ),
+      body: buildBody(context),
+      // body: SingleChildScrollView(
+      //   child: buildBody(context),
+      // ),
+    );
   }
 
   BlocProvider<NumberTriviaBloc> buildBody(BuildContext context) {
@@ -40,53 +40,7 @@ class NumberTriviaPage extends StatelessWidget {
             width: 320,
             child: buildCard1(),
           ),
-          Container(
-              width: 400,
-              child: Column(
-                children: [
-                  Form(
-                      child: Column(
-                    children: [
-                      TextFormField(
-                        initialValue: '0',
-                        decoration: InputDecoration(labelText: '生产年月'),
-                      ),
-                      TextFormField(
-                        initialValue: '0',
-                        decoration: InputDecoration(labelText: '归零值'),
-                      ),
-                      TextFormField(
-                        initialValue: '0',
-                        decoration: InputDecoration(labelText: '标定值'),
-                      ),
-                      TextFormField(
-                        initialValue: '0',
-                        decoration: InputDecoration(labelText: '微松动阈值'),
-                      ),
-                      TextFormField(
-                        initialValue: '0',
-                        decoration: InputDecoration(labelText: '松动阈值'),
-                      ),
-                      TextFormField(
-                        initialValue: '0',
-                        decoration: InputDecoration(labelText: '过压阈值'),
-                      ),
-                      TextFormField(
-                        initialValue: '0',
-                        decoration: InputDecoration(labelText: '唤醒时间'),
-                      ),
-                      TextFormField(
-                        initialValue: '0',
-                        decoration: InputDecoration(labelText: 'IP地址(域名)'),
-                      ),
-                      TextFormField(
-                        initialValue: '0',
-                        decoration: InputDecoration(labelText: '端口号'),
-                      ),
-                    ],
-                  ))
-                ],
-              )),
+          Container(width: 400, child: buildColumn()),
           Expanded(
             child: Placeholder(
               color: Colors.blue,
@@ -94,6 +48,73 @@ class NumberTriviaPage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Column buildColumn() {
+    return Column(
+      children: [
+        Form(
+            child: Column(
+          children: [
+            TextFormField(
+              initialValue: '0',
+              decoration: InputDecoration(labelText: '生产年月'),
+            ),
+            TextFormField(
+              initialValue: '0',
+              decoration: InputDecoration(labelText: '归零值'),
+            ),
+            TextFormField(
+              initialValue: '0',
+              decoration: InputDecoration(labelText: '标定值'),
+            ),
+            TextFormField(
+              initialValue: '0',
+              decoration: InputDecoration(labelText: '微松动阈值'),
+            ),
+            TextFormField(
+              initialValue: '0',
+              decoration: InputDecoration(labelText: '松动阈值'),
+            ),
+            TextFormField(
+              initialValue: '0',
+              decoration: InputDecoration(labelText: '过压阈值'),
+            ),
+            TextFormField(
+              initialValue: '0',
+              decoration: InputDecoration(labelText: '唤醒时间'),
+            ),
+            TextFormField(
+              initialValue: '0',
+              decoration: InputDecoration(labelText: 'IP地址(域名)'),
+            ),
+            TextFormField(
+              initialValue: '0',
+              decoration: InputDecoration(labelText: '端口号'),
+            ),
+          ],
+        )),
+        SizedBox(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                  child: Container(
+                      margin: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                          onPressed: null, child: Text('读取参数')))),
+              Expanded(
+                  child: Container(
+                      margin: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                          onPressed: null, child: Text('写入参数')))),
+            ],
+          ),
+        )
+      ],
     );
   }
 
