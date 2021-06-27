@@ -45,7 +45,7 @@ class NumberTriviaPage extends StatelessWidget {
             color: Colors.blue,
           ),
           Container(
-            width: 360,
+            width: 400,
             // child: buildCard1(),
             child: buildCard2(),
           ),
@@ -68,39 +68,51 @@ class NumberTriviaPage extends StatelessWidget {
           children: [
             TextFormField(
               initialValue: '0',
+              style: TextStyle(fontSize: 25.0),
               decoration: InputDecoration(labelText: '生产年月'),
             ),
             TextFormField(
               initialValue: '0',
+              style: TextStyle(fontSize: 25.0),
               decoration: InputDecoration(labelText: '归零值'),
             ),
             TextFormField(
               initialValue: '0',
+              style: TextStyle(fontSize: 25.0),
               decoration: InputDecoration(labelText: '标定值'),
             ),
             TextFormField(
               initialValue: '0',
+              style: TextStyle(fontSize: 25.0),
               decoration: InputDecoration(labelText: '微松动阈值'),
             ),
             TextFormField(
               initialValue: '0',
+              style: TextStyle(fontSize: 25.0),
               decoration: InputDecoration(labelText: '松动阈值'),
             ),
             TextFormField(
               initialValue: '0',
+              style: TextStyle(fontSize: 25.0),
               decoration: InputDecoration(labelText: '过压阈值'),
             ),
             TextFormField(
               initialValue: '0',
+              style: TextStyle(fontSize: 25.0),
               decoration: InputDecoration(labelText: '唤醒时间'),
             ),
             TextFormField(
               initialValue: '0',
+              style: TextStyle(fontSize: 25.0),
               decoration: InputDecoration(labelText: 'IP地址(域名)'),
             ),
             TextFormField(
               initialValue: '0',
-              decoration: InputDecoration(labelText: '端口号'),
+              style: TextStyle(fontSize: 25.0),
+              decoration: InputDecoration(
+                labelText: '端口号',
+                // labelStyle: TextStyle(fontSize: 25.0),
+              ),
             ),
           ],
         )),
@@ -166,7 +178,7 @@ class NumberTriviaPage extends StatelessWidget {
       ParamTest("松动阈值:", ""),
       ParamTest("过压阈值:", ""),
       ParamTest("唤醒时间:", ""),
-      ParamTest("IP地址(域名):", ""),
+      ParamTest("IP地址(域名):", "255.255.255.255"),
       ParamTest("端口号:", ""),
       // ParamTest(key: "2", value: "3"),
     ];
