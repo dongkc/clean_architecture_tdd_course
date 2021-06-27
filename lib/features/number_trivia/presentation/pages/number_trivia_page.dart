@@ -6,6 +6,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../injection_container.dart';
 
+class ParamTest {
+  String key;
+  String value;
+
+  // ParamTest({this.key, this.value});
+  ParamTest(this.key, this.value);
+}
+
 class NumberTriviaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -38,7 +46,8 @@ class NumberTriviaPage extends StatelessWidget {
           ),
           Container(
             width: 320,
-            child: buildCard1(),
+            // child: buildCard1(),
+            child: buildCard2(),
           ),
           Container(width: 400, child: buildColumn()),
           Expanded(
@@ -115,6 +124,49 @@ class NumberTriviaPage extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+
+  Widget getWidget(List<ParamTest> para) {
+    return Table(
+        defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+        columnWidths: {
+          0: FlexColumnWidth(1),
+          1: FlexColumnWidth(1),
+        },
+        children: para.map((item) {
+          return TableRow(
+            children: [
+              Text(
+                item.key,
+                textAlign: TextAlign.end,
+              ),
+              Text(
+                item.value,
+                textAlign: TextAlign.center,
+              ),
+            ],
+          );
+        }).toList());
+  }
+
+  Card buildCard2() {
+    List<ParamTest> test = [
+      ParamTest("1", "2"),
+      // ParamTest(key: "2", value: "3"),
+    ];
+    return Card(
+      child: Column(
+        children: [
+          Text(
+            "HW123456788765432",
+            style: TextStyle(fontSize: 30.0),
+            textAlign: TextAlign.center,
+          ),
+          getWidget(test),
+        ],
+      ),
+      // child: getWidget(test),
     );
   }
 
