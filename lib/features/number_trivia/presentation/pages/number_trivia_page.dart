@@ -187,7 +187,7 @@ class NumberTriviaPage extends StatelessWidget {
         }).toList());
   }
 
-  BlocProvider<NumberTriviaBloc> buildCard2(BuildContext context) {
+  Widget buildCard2(BuildContext context) {
     // Card buildCard2() {
     List<ParamTest> test = [
       ParamTest('报警等级:', '正常'),
@@ -204,28 +204,24 @@ class NumberTriviaPage extends StatelessWidget {
       ParamTest('唤醒时间:', ''),
       ParamTest('IP地址(域名):', '255.255.255.255'),
       ParamTest('端口号:', ''),
-      // ParamTest(key: '2', value: '3'),
     ];
-    return BlocProvider(
-      create: (_) => sl<NumberTriviaBloc>(),
-      child: Card(
-        child: BlocBuilder<NumberTriviaBloc, NumberTriviaState>(
-          builder: (context, state) {
-            // if (state == DataUpdateState) {
-            print('state ---------------- ${state}');
-          // }
-            return Column(
-              children: [
-                Text(
-                  'HW123456788765432',
-                  style: TextStyle(fontSize: 38.0),
-                  textAlign: TextAlign.center,
-                ),
-                getWidget(test),
-              ],
-            );
-          },
-        ),
+    return Card(
+      child: BlocBuilder<NumberTriviaBloc, NumberTriviaState>(
+        builder: (context, state) {
+          // if (state == DataUpdateState) {
+          print('state ---------------- ${state}');
+        // }
+          return Column(
+            children: [
+              Text(
+                'HW123456788765432',
+                style: TextStyle(fontSize: 38.0),
+                textAlign: TextAlign.center,
+              ),
+              getWidget(test),
+            ],
+          );
+        },
       ),
     );
   }

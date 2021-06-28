@@ -17,6 +17,8 @@ const String CACHE_FAILURE_MESSAGE = 'Cache Failure';
 const String INVALID_INPUT_FAILURE_MESSAGE =
     'Invalid Input - The number must be a positive integer or zero.';
 
+int test = 0;
+
 class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
   final GetConcreteNumberTrivia getConcreteNumberTrivia;
   final GetRandomNumberTrivia getRandomNumberTrivia;
@@ -60,8 +62,9 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
       yield* _eitherLoadedOrErrorState(failureOrTrivia);
     } else if (event is IAE203UpdateParamsEvent) {
       print('-----------------------------');
-      // yield DataUpdateState(alarm:'0000');
-      yield Loading();
+      test++;
+      yield DataUpdateState(alarm: test.toString());
+      // yield Loading();
       // yield DataUpdateState({alarm:'正常', id:'hw1213213', fw_version:'1.0.1', hw_version:'1.0.2'});
     }
   }
