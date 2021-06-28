@@ -60,7 +60,9 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
       yield* _eitherLoadedOrErrorState(failureOrTrivia);
     } else if (event is IAE203UpdateParamsEvent) {
       print('-----------------------------');
-      // yield Loading();
+      // yield DataUpdateState(alarm:'0000');
+      yield Loading();
+      // yield DataUpdateState({alarm:'正常', id:'hw1213213', fw_version:'1.0.1', hw_version:'1.0.2'});
     }
   }
 

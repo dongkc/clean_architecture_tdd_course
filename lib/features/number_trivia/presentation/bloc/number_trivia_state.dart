@@ -33,11 +33,14 @@ class Error extends NumberTriviaState {
 // 收到数据需要更新的状态定义
 class DataUpdateState extends NumberTriviaState {
   final String alarm;
-  final String id;
-  final String fw_version;
-  final String hw_version;
+  // final String id;
+  // final String fw_version;
+  // final String hw_version;
 
-  DataUpdateState({this.alarm, this.id, this.fw_version, this.hw_version});
+  DataUpdateState({this.alarm});
+  // DataUpdateState({this.alarm, this.id, this.fw_version, this.hw_version});
 
-  List<Object> get props => [alarm, id, fw_version, hw_version];
+  @override
+  // List<Object> get props => [alarm, id, fw_version, hw_version];
+  List<Object> get props => [alarm];
 }

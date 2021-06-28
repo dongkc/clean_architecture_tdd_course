@@ -211,6 +211,9 @@ class NumberTriviaPage extends StatelessWidget {
       child: Card(
         child: BlocBuilder<NumberTriviaBloc, NumberTriviaState>(
           builder: (context, state) {
+            // if (state == DataUpdateState) {
+            print('state ---------------- ${state}');
+          // }
             return Column(
               children: [
                 Text(
@@ -310,7 +313,7 @@ class NumberTriviaPage extends StatelessWidget {
                   ),
                 ])
               ],
-            ),
+           ),
           ],
         ),
       ),
