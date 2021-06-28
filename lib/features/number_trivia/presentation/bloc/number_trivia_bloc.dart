@@ -11,6 +11,7 @@ import './bloc.dart';
 import '../../../../core/util/input_converter.dart';
 import '../../domain/usecases/get_concrete_number_trivia.dart';
 import '../../domain/usecases/get_random_number_trivia.dart';
+import '../../../../global.dart';
 
 const String SERVER_FAILURE_MESSAGE = 'Server Failure';
 const String CACHE_FAILURE_MESSAGE = 'Cache Failure';
@@ -62,8 +63,25 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
       yield* _eitherLoadedOrErrorState(failureOrTrivia);
     } else if (event is IAE203UpdateParamsEvent) {
       print('-----------------------------');
-      test++;
-      yield DataUpdateState(alarm: test.toString());
+      List<ParamTest> test = [
+        ParamTest('报警等级:', '正常'),
+        ParamTest('固件版本:', '2.0.0'),
+        ParamTest('硬件版本:', '1.0.0'),
+        ParamTest('压力(KN):', '120.0'),
+        ParamTest('压力AD值:', '123456'),
+        ParamTest('生产年月:', '2021/01'),
+        ParamTest('归零值:', ''),
+        ParamTest('标定值:', ''),
+        ParamTest('微松动阈值:', ''),
+        ParamTest('松动阈值:', ''),
+        ParamTest('过压阈值:', ''),
+        ParamTest('唤醒时间:', ''),
+        ParamTest('IP地址(域名):', '255.255.255.255'),
+        ParamTest('端口号:', ''),
+      ];
+
+      // test++;
+      yield DataUpdateState(test, "11111");
       // yield Loading();
       // yield DataUpdateState({alarm:'正常', id:'hw1213213', fw_version:'1.0.1', hw_version:'1.0.2'});
     }

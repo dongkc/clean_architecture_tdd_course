@@ -5,14 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../injection_container.dart';
-
-class ParamTest {
-  String key;
-  String value;
-
-  // ParamTest({this.key, this.value});
-  ParamTest(this.key, this.value);
-}
+import '../../../../global.dart';
 
 class NumberTriviaPage extends StatelessWidget {
   @override
@@ -205,19 +198,19 @@ class NumberTriviaPage extends StatelessWidget {
       ParamTest('IP地址(域名):', '255.255.255.255'),
       ParamTest('端口号:', ''),
     ];
-    var id = "test";
+    var id = "HW123456788765432";
     return Card(
       child: BlocBuilder<NumberTriviaBloc, NumberTriviaState>(
         builder: (context, state) {
           if (state is DataUpdateState) {
             print('state ---------------- ${state}');
-            id = state.alarm;
+            test = state.paramList;
+            id = state.id;
           }
           return Column(
             children: [
               Text(
                 id,
-                // 'HW123456788765432',
                 style: TextStyle(fontSize: 38.0),
                 textAlign: TextAlign.center,
               ),
