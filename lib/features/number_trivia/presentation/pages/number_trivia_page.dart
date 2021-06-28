@@ -8,7 +8,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../injection_container.dart';
 import '../../../../global.dart';
 
-class NumberTriviaPage extends StatelessWidget {
+class NumberTriviaPage extends StatefulWidget {
+  @override
+  _NumberTriviaPageState createState() => _NumberTriviaPageState();
+}
+
+class _NumberTriviaPageState extends State<NumberTriviaPage> {
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     var queryData = MediaQuery.of(context);
@@ -20,12 +27,9 @@ class NumberTriviaPage extends StatelessWidget {
     print('pixel height: ${size.height}');
     return Scaffold(
       appBar: AppBar(
-        title: Text(''),
+        title: Text('demo'),
       ),
       body: buildBody(context),
-      // body: SingleChildScrollView(
-      //   child: buildBody(context),
-      // ),
     );
   }
 
@@ -34,10 +38,35 @@ class NumberTriviaPage extends StatelessWidget {
       create: (_) => sl<NumberTriviaBloc>(),
       child: Row(
         children: [
-          Placeholder(
-            fallbackWidth: 80,
-            color: Colors.blue,
+          NavigationRail(
+            selectedIndex: _selectedIndex,
+            onDestinationSelected: (int index) {
+              setState(() {
+                _selectedIndex = index;
+                print('-----------------------------');
+                print(_selectedIndex);
+              });
+            },
+            labelType: NavigationRailLabelType.selected,
+            destinations: const <NavigationRailDestination>[
+              NavigationRailDestination(
+                icon: Icon(Icons.favorite_border),
+                selectedIcon: Icon(Icons.favorite),
+                label: Text('First'),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.bookmark_border),
+                selectedIcon: Icon(Icons.book),
+                label: Text('Second'),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.star_border),
+                selectedIcon: Icon(Icons.star),
+                label: Text('Third'),
+              ),
+            ],
           ),
+          const VerticalDivider(thickness: 1, width: 1),
           Container(
             width: 400,
             // child: buildCard1(),
@@ -89,22 +118,22 @@ class NumberTriviaPage extends StatelessWidget {
   Widget buildCard2(BuildContext context) {
     // Card buildCard2() {
     List<ParamEntry> test = [
-      ParamEntry('报警等级:', '正常'),
-      ParamEntry('固件版本:', '1.0.0'),
-      ParamEntry('硬件版本:', '1.0.0'),
-      ParamEntry('压力(KN):', '120.0'),
-      ParamEntry('压力AD值:', '123456'),
-      ParamEntry('生产年月:', '2021/01'),
+      ParamEntry('报警等级:', ''),
+      ParamEntry('固件版本:', ''),
+      ParamEntry('硬件版本:', ''),
+      ParamEntry('压力(KN):', ''),
+      ParamEntry('压力AD值:', ''),
+      ParamEntry('生产年月:', ''),
       ParamEntry('归零值:', ''),
       ParamEntry('标定值:', ''),
       ParamEntry('微松动阈值:', ''),
       ParamEntry('松动阈值:', ''),
       ParamEntry('过压阈值:', ''),
       ParamEntry('唤醒时间:', ''),
-      ParamEntry('IP地址(域名):', '255.255.255.255'),
+      ParamEntry('IP地址(域名):', ''),
       ParamEntry('端口号:', ''),
     ];
-    var id = "HW123456788765432";
+    var id = "";
     return Card(
       child: BlocBuilder<NumberTriviaBloc, NumberTriviaState>(
         builder: (context, state) {
