@@ -205,16 +205,19 @@ class NumberTriviaPage extends StatelessWidget {
       ParamTest('IP地址(域名):', '255.255.255.255'),
       ParamTest('端口号:', ''),
     ];
+    var id = "test";
     return Card(
       child: BlocBuilder<NumberTriviaBloc, NumberTriviaState>(
         builder: (context, state) {
-          // if (state == DataUpdateState) {
-          print('state ---------------- ${state}');
-        // }
+          if (state is DataUpdateState) {
+            print('state ---------------- ${state}');
+            id = state.alarm;
+          }
           return Column(
             children: [
               Text(
-                'HW123456788765432',
+                id,
+                // 'HW123456788765432',
                 style: TextStyle(fontSize: 38.0),
                 textAlign: TextAlign.center,
               ),
@@ -309,7 +312,7 @@ class NumberTriviaPage extends StatelessWidget {
                   ),
                 ])
               ],
-           ),
+            ),
           ],
         ),
       ),
