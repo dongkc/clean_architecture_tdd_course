@@ -29,3 +29,14 @@ class Error extends NumberTriviaState {
   @override
   List<Object> get props => [message];
 }
+
+class DataUpdateState extends NumberTriviaState {
+  final String alarm;
+  final String id;
+  final String fw_version;
+  final String hw_version;
+
+  DataUpdateState({this.alarm, this.id, this.fw_version, this.hw_version});
+
+  List<Object> get props => [alarm, id, fw_version, hw_version];
+}
