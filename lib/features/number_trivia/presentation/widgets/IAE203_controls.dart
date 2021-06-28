@@ -30,15 +30,15 @@ class _IAE203ControlsState extends State<IAE203Controls> {
 
   @override
   void initState() {
-    _product_year_ctl.text = "2021/6/12";
-    _gui_ling_ctl.text = "0";
-    _biao_ding_ctl.text = "0";
-    _song_dong1_ctl.text = '0';
-    _song_dong2_ctl.text = '0';
-    _guo_ya_ctl.text = '0';
-    _wake_time_ctl.text = '00:00';
-    _server_addr_ctl.text = '0';
-    _server_port_ctl.text = '0';
+    // _product_year_ctl.text = "2021/6/12";
+    // _gui_ling_ctl.text = "0";
+    // _biao_ding_ctl.text = "0";
+    // _song_dong1_ctl.text = '0';
+    // _song_dong2_ctl.text = '0';
+    // _guo_ya_ctl.text = '0';
+    // _wake_time_ctl.text = '00:00';
+    // _server_addr_ctl.text = '0';
+    // _server_port_ctl.text = '0';
   }
 
   @override
