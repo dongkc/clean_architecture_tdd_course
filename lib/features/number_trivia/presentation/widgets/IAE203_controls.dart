@@ -23,8 +23,9 @@ class _IAE203ControlsState extends State<IAE203Controls> {
   final TextEditingController _wake_time_ctl = TextEditingController();
   final TextEditingController _server_addr_ctl = TextEditingController();
   final TextEditingController _server_port_ctl = TextEditingController();
-  
+
   final format = DateFormat("yyyy/MM/dd");
+  final time_format = DateFormat("HH:mm");
 
   @override
   void initState() {
@@ -34,7 +35,7 @@ class _IAE203ControlsState extends State<IAE203Controls> {
     _song_dong1_ctl.text = '0';
     _song_dong2_ctl.text = '0';
     _guo_ya_ctl.text = '0';
-    _wake_time_ctl.text = '0';
+    _wake_time_ctl.text = '00:00';
     _server_addr_ctl.text = '0';
     _server_port_ctl.text = '0';
   }
@@ -73,11 +74,6 @@ class _IAE203ControlsState extends State<IAE203Controls> {
                         lastDate: DateTime(2100));
                   },
                 ),
-                // TextFormField(
-                //   controller: _product_year_ctl,
-                //   style: TextStyle(fontSize: 25.0),
-                //   decoration: InputDecoration(labelText: '生产年月'),
-                // ),
                 TextFormField(
                   controller: _gui_ling_ctl,
                   style: TextStyle(fontSize: 25.0),
@@ -103,11 +99,36 @@ class _IAE203ControlsState extends State<IAE203Controls> {
                   style: TextStyle(fontSize: 25.0),
                   decoration: InputDecoration(labelText: '过压阈值'),
                 ),
-                TextFormField(
+                DateTimeField(
                   controller: _wake_time_ctl,
                   style: TextStyle(fontSize: 25.0),
                   decoration: InputDecoration(labelText: '唤醒时间'),
+                  format: time_format,
+                  onShowPicker: (context, currentValue) async {
+                      final time = await showTimePicker(
+                        context: context,
+                        initialTime: TimeOfDay.fromDateTime(
+                            currentValue ?? DateTime.now()),
+                      );
+                    if (time != null) {
+                      return DateTimeField.combine(DateTime.now(), time);
+                    } else {
+                      return currentValue;
+                    }
+                  },
+                  // onShowPicker: (context, currentValue) {
+                  //   return showTimePicker(
+                  //     context: context,
+                  //     initialTime: TimeOfDay.fromDateTime(DateTime.now()),
+                  //   );
+                  // },
                 ),
+
+                // TextFormField(
+                //   controller: _wake_time_ctl,
+                //   style: TextStyle(fontSize: 25.0),
+                //   decoration: InputDecoration(labelText: '唤醒时间'),
+                // ),
                 TextFormField(
                   controller: _server_addr_ctl,
                   style: TextStyle(fontSize: 25.0),
