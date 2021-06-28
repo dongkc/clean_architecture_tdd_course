@@ -12,7 +12,15 @@ class IAE203Controls extends StatefulWidget {
 }
 
 class _IAE203ControlsState extends State<IAE203Controls> {
-  final _product_year_ctl = TextEditingController();
+  final TextEditingController _product_year_ctl = TextEditingController();
+  final TextEditingController _gui_ling_ctl     = TextEditingController();
+  final TextEditingController _biao_ding_ctl    = TextEditingController();
+  final TextEditingController _song_dong1_ctl   = TextEditingController();
+  final TextEditingController _song_dong2_ctl   = TextEditingController();
+  final TextEditingController _guo_ya_ctl       = TextEditingController();
+  final TextEditingController _wake_time_ctl    = TextEditingController();
+  final TextEditingController _server_addr_ctl  = TextEditingController();
+  final TextEditingController _server_port_ctl  = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,47 +44,47 @@ class _IAE203ControlsState extends State<IAE203Controls> {
                 child: Column(
               children: [
                 TextFormField(
-                  initialValue: '0',
+                  controller: _product_year_ctl,
                   style: TextStyle(fontSize: 25.0),
                   decoration: InputDecoration(labelText: '生产年月'),
                 ),
                 TextFormField(
-                  initialValue: '0',
+                  controller: _gui_ling_ctl,
                   style: TextStyle(fontSize: 25.0),
                   decoration: InputDecoration(labelText: '归零值'),
                 ),
                 TextFormField(
-                  initialValue: '0',
+                  controller: _biao_ding_ctl,
                   style: TextStyle(fontSize: 25.0),
                   decoration: InputDecoration(labelText: '标定值'),
                 ),
                 TextFormField(
-                  initialValue: '0',
+                  controller: _song_dong1_ctl,
                   style: TextStyle(fontSize: 25.0),
                   decoration: InputDecoration(labelText: '微松动阈值'),
                 ),
                 TextFormField(
-                  initialValue: '0',
+                  controller: _song_dong2_ctl,
                   style: TextStyle(fontSize: 25.0),
                   decoration: InputDecoration(labelText: '松动阈值'),
                 ),
                 TextFormField(
-                  initialValue: '0',
+                  controller: _guo_ya_ctl,
                   style: TextStyle(fontSize: 25.0),
                   decoration: InputDecoration(labelText: '过压阈值'),
                 ),
                 TextFormField(
-                  initialValue: '0',
+                  controller: _wake_time_ctl,
                   style: TextStyle(fontSize: 25.0),
                   decoration: InputDecoration(labelText: '唤醒时间'),
                 ),
                 TextFormField(
-                  initialValue: '0',
+                  controller: _server_addr_ctl,
                   style: TextStyle(fontSize: 25.0),
                   decoration: InputDecoration(labelText: 'IP地址(域名)'),
                 ),
                 TextFormField(
-                  initialValue: '0',
+                  controller: _server_port_ctl,
                   style: TextStyle(fontSize: 25.0),
                   decoration: InputDecoration(
                     labelText: '端口号',
