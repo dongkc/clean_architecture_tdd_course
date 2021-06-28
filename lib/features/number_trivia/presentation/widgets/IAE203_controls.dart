@@ -13,14 +13,26 @@ class IAE203Controls extends StatefulWidget {
 
 class _IAE203ControlsState extends State<IAE203Controls> {
   final TextEditingController _product_year_ctl = TextEditingController();
-  final TextEditingController _gui_ling_ctl     = TextEditingController();
-  final TextEditingController _biao_ding_ctl    = TextEditingController();
-  final TextEditingController _song_dong1_ctl   = TextEditingController();
-  final TextEditingController _song_dong2_ctl   = TextEditingController();
-  final TextEditingController _guo_ya_ctl       = TextEditingController();
-  final TextEditingController _wake_time_ctl    = TextEditingController();
-  final TextEditingController _server_addr_ctl  = TextEditingController();
-  final TextEditingController _server_port_ctl  = TextEditingController();
+  final TextEditingController _gui_ling_ctl = TextEditingController();
+  final TextEditingController _biao_ding_ctl = TextEditingController();
+  final TextEditingController _song_dong1_ctl = TextEditingController();
+  final TextEditingController _song_dong2_ctl = TextEditingController();
+  final TextEditingController _guo_ya_ctl = TextEditingController();
+  final TextEditingController _wake_time_ctl = TextEditingController();
+  final TextEditingController _server_addr_ctl = TextEditingController();
+  final TextEditingController _server_port_ctl = TextEditingController();
+
+  void initState() {
+    _product_year_ctl.text = "0";
+    _gui_ling_ctl.text = "0";
+    _biao_ding_ctl.text = "0";
+    _song_dong1_ctl.text = '0';
+    _song_dong2_ctl.text = '0';
+    _guo_ya_ctl.text = '0';
+    _wake_time_ctl.text = '0';
+    _server_addr_ctl.text = '0';
+    _server_port_ctl.text = '0';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +40,7 @@ class _IAE203ControlsState extends State<IAE203Controls> {
       children: [
         Container(width: 300, child: buildColumn()),
         // Expanded(
-          buildContainer(context),
+        buildContainer(context),
         // ),
       ],
     );
@@ -116,11 +128,7 @@ class _IAE203ControlsState extends State<IAE203Controls> {
                         child: Container(
                             margin: const EdgeInsets.all(8.0),
                             child: ElevatedButton(
-                                onPressed: () {
-                                  BlocProvider.of<NumberTriviaBloc>(context)
-                                      .add(IAE203UpdateParamsEvent("test"));
-                                },
-                                child: Text('读取参数')))),
+                                onPressed: sendReadcmd, child: Text('读取参数')))),
                     Expanded(
                         child: Container(
                             margin: const EdgeInsets.all(8.0),
@@ -139,4 +147,10 @@ class _IAE203ControlsState extends State<IAE203Controls> {
     );
   }
 
+  void sendReadcmd() {
+    print('--------------------------');
+    print(_product_year_ctl.text);
+    BlocProvider.of<NumberTriviaBloc>(context)
+        .add(IAE203UpdateParamsEvent(_product_year_ctl.text));
+  }
 }

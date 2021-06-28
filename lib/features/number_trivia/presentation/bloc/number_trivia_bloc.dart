@@ -81,7 +81,7 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
       ];
 
       // test++;
-      yield DataUpdateState(test, "11111");
+      yield DataUpdateState(test, event.numberString);
       // yield Loading();
       // yield DataUpdateState({alarm:'正常', id:'hw1213213', fw_version:'1.0.1', hw_version:'1.0.2'});
     }
