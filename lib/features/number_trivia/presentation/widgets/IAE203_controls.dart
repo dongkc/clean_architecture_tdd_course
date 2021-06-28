@@ -1,5 +1,6 @@
 import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
@@ -77,26 +78,31 @@ class _IAE203ControlsState extends State<IAE203Controls> {
                 TextFormField(
                   controller: _gui_ling_ctl,
                   style: TextStyle(fontSize: 25.0),
+                  inputFormatters: [FilteringTextInputFormatter.allow(RegExp('[0-9.]+')),],
                   decoration: InputDecoration(labelText: '归零值'),
                 ),
                 TextFormField(
                   controller: _biao_ding_ctl,
                   style: TextStyle(fontSize: 25.0),
+                  inputFormatters: [FilteringTextInputFormatter.allow(RegExp('[0-9.]+')),],
                   decoration: InputDecoration(labelText: '标定值'),
                 ),
                 TextFormField(
                   controller: _song_dong1_ctl,
                   style: TextStyle(fontSize: 25.0),
+                  inputFormatters: [FilteringTextInputFormatter.allow(RegExp('[0-9.]+')),],
                   decoration: InputDecoration(labelText: '微松动阈值'),
                 ),
                 TextFormField(
                   controller: _song_dong2_ctl,
                   style: TextStyle(fontSize: 25.0),
+                  inputFormatters: [FilteringTextInputFormatter.allow(RegExp('[0-9.]+')),],
                   decoration: InputDecoration(labelText: '松动阈值'),
                 ),
                 TextFormField(
                   controller: _guo_ya_ctl,
                   style: TextStyle(fontSize: 25.0),
+                  inputFormatters: [FilteringTextInputFormatter.allow(RegExp('[0-9.]+')),],
                   decoration: InputDecoration(labelText: '过压阈值'),
                 ),
                 DateTimeField(
@@ -105,30 +111,18 @@ class _IAE203ControlsState extends State<IAE203Controls> {
                   decoration: InputDecoration(labelText: '唤醒时间'),
                   format: time_format,
                   onShowPicker: (context, currentValue) async {
-                      final time = await showTimePicker(
-                        context: context,
-                        initialTime: TimeOfDay.fromDateTime(
-                            currentValue ?? DateTime.now()),
-                      );
+                    final time = await showTimePicker(
+                      context: context,
+                      initialTime: TimeOfDay.fromDateTime(
+                          currentValue ?? DateTime.now()),
+                    );
                     if (time != null) {
                       return DateTimeField.combine(DateTime.now(), time);
                     } else {
                       return currentValue;
                     }
                   },
-                  // onShowPicker: (context, currentValue) {
-                  //   return showTimePicker(
-                  //     context: context,
-                  //     initialTime: TimeOfDay.fromDateTime(DateTime.now()),
-                  //   );
-                  // },
                 ),
-
-                // TextFormField(
-                //   controller: _wake_time_ctl,
-                //   style: TextStyle(fontSize: 25.0),
-                //   decoration: InputDecoration(labelText: '唤醒时间'),
-                // ),
                 TextFormField(
                   controller: _server_addr_ctl,
                   style: TextStyle(fontSize: 25.0),
@@ -137,9 +131,9 @@ class _IAE203ControlsState extends State<IAE203Controls> {
                 TextFormField(
                   controller: _server_port_ctl,
                   style: TextStyle(fontSize: 25.0),
+                  inputFormatters: [FilteringTextInputFormatter.allow(RegExp('[0-9.]+')),],
                   decoration: InputDecoration(
                     labelText: '端口号',
-                    // labelStyle: TextStyle(fontSize: 25.0),
                   ),
                 ),
               ],
@@ -188,6 +182,7 @@ class _IAE203ControlsState extends State<IAE203Controls> {
 
   void sendReadcmd() {
     print(_product_year_ctl.text);
+    print(_wake_time_ctl.text);
     BlocProvider.of<NumberTriviaBloc>(context)
         .add(IAE203UpdateParamsEvent(_product_year_ctl.text));
   }
