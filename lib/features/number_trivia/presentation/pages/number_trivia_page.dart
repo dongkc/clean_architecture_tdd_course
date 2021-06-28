@@ -204,17 +204,20 @@ class NumberTriviaPage extends StatelessWidget {
     return BlocProvider(
       create: (_) => sl<NumberTriviaBloc>(),
       child: Card(
-        child: Column(
-          children: [
-            Text(
-              'HW123456788765432',
-              style: TextStyle(fontSize: 38.0),
-              textAlign: TextAlign.center,
-            ),
-            getWidget(test),
-          ],
+        child: BlocBuilder<NumberTriviaBloc, NumberTriviaState>(
+          builder: (context, state) {
+            return Column(
+              children: [
+                Text(
+                  'HW123456788765432',
+                  style: TextStyle(fontSize: 38.0),
+                  textAlign: TextAlign.center,
+                ),
+                getWidget(test),
+              ],
+            );
+          },
         ),
-        // child: getWidget(test),
       ),
     );
   }

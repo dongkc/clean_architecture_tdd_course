@@ -17,3 +17,13 @@ class GetTriviaForConcreteNumber extends NumberTriviaEvent {
 }
 
 class GetTriviaForRandomNumber extends NumberTriviaEvent {}
+
+class IAE203UpdateParamsEvent extends NumberTriviaEvent {
+  final String numberString;
+
+  IAE203UpdateParamsEvent(this.numberString);
+
+  @override
+  List<Object> get props => [numberString];
+}
+
