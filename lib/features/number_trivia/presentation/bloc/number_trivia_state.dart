@@ -38,13 +38,13 @@ class DataUpdateState extends NumberTriviaState {
   // 终端ID
   final String id;
 
-  List<ParamTest> paramList;
+  List<ParamEntry> paramList;
 
   void add(String key, String val) {
-    paramList.add(ParamTest(key, val));
+    paramList.add(ParamEntry(key, val));
   }
 
-  DataUpdateState(List<ParamTest> this.paramList, String this.id);
+  DataUpdateState(List<ParamEntry> this.paramList, String this.id);
 
   @override
   List<Object> get props => [paramList, id];

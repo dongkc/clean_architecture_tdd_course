@@ -63,21 +63,21 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
       yield* _eitherLoadedOrErrorState(failureOrTrivia);
     } else if (event is IAE203UpdateParamsEvent) {
       print('-----------------------------');
-      List<ParamTest> test = [
-        ParamTest('报警等级:', '正常'),
-        ParamTest('固件版本:', '2.0.0'),
-        ParamTest('硬件版本:', '1.0.0'),
-        ParamTest('压力(KN):', '120.0'),
-        ParamTest('压力AD值:', '123456'),
-        ParamTest('生产年月:', '2021/01'),
-        ParamTest('归零值:', ''),
-        ParamTest('标定值:', ''),
-        ParamTest('微松动阈值:', ''),
-        ParamTest('松动阈值:', ''),
-        ParamTest('过压阈值:', ''),
-        ParamTest('唤醒时间:', ''),
-        ParamTest('IP地址(域名):', '255.255.255.255'),
-        ParamTest('端口号:', ''),
+      List<ParamEntry> test = [
+        ParamEntry('报警等级:', '正常'),
+        ParamEntry('固件版本:', '2.0.0'),
+        ParamEntry('硬件版本:', '1.0.0'),
+        ParamEntry('压力(KN):', '120.0'),
+        ParamEntry('压力AD值:', '123456'),
+        ParamEntry('生产年月:', '2021/01'),
+        ParamEntry('归零值:', ''),
+        ParamEntry('标定值:', ''),
+        ParamEntry('微松动阈值:', ''),
+        ParamEntry('松动阈值:', ''),
+        ParamEntry('过压阈值:', ''),
+        ParamEntry('唤醒时间:', ''),
+        ParamEntry('IP地址(域名):', '255.255.255.255'),
+        ParamEntry('端口号:', ''),
       ];
 
       // test++;
