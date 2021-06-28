@@ -1,6 +1,8 @@
 import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
 class IAE203Controls extends StatefulWidget {
   const IAE203Controls({
@@ -21,9 +23,12 @@ class _IAE203ControlsState extends State<IAE203Controls> {
   final TextEditingController _wake_time_ctl = TextEditingController();
   final TextEditingController _server_addr_ctl = TextEditingController();
   final TextEditingController _server_port_ctl = TextEditingController();
+  
+  final format = DateFormat("yyyy/MM/dd");
 
+  @override
   void initState() {
-    _product_year_ctl.text = "0";
+    _product_year_ctl.text = "2021/6/12";
     _gui_ling_ctl.text = "0";
     _biao_ding_ctl.text = "0";
     _song_dong1_ctl.text = '0';
@@ -55,11 +60,24 @@ class _IAE203ControlsState extends State<IAE203Controls> {
             Form(
                 child: Column(
               children: [
-                TextFormField(
+                DateTimeField(
                   controller: _product_year_ctl,
+                  format: format,
                   style: TextStyle(fontSize: 25.0),
-                  decoration: InputDecoration(labelText: '生产年月'),
+                  decoration: InputDecoration(labelText: '制造日期'),
+                  onShowPicker: (context, currentValue) {
+                    return showDatePicker(
+                        context: context,
+                        firstDate: DateTime(2020),
+                        initialDate: currentValue ?? DateTime.now(),
+                        lastDate: DateTime(2100));
+                  },
                 ),
+                // TextFormField(
+                //   controller: _product_year_ctl,
+                //   style: TextStyle(fontSize: 25.0),
+                //   decoration: InputDecoration(labelText: '生产年月'),
+                // ),
                 TextFormField(
                   controller: _gui_ling_ctl,
                   style: TextStyle(fontSize: 25.0),
@@ -148,7 +166,6 @@ class _IAE203ControlsState extends State<IAE203Controls> {
   }
 
   void sendReadcmd() {
-    print('--------------------------');
     print(_product_year_ctl.text);
     BlocProvider.of<NumberTriviaBloc>(context)
         .add(IAE203UpdateParamsEvent(_product_year_ctl.text));
