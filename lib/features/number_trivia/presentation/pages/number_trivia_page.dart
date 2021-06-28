@@ -58,36 +58,41 @@ class NumberTriviaPage extends StatelessWidget {
     );
   }
 
-  BlocProvider<NumberTriviaBloc> buildContainer(BuildContext context) {
-    return BlocProvider(
-      create: (_) => sl<NumberTriviaBloc>(),
-      child: Container(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 100,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Expanded(
-                      child: Container(
-                          margin: const EdgeInsets.all(8.0),
-                          child: ElevatedButton(
-                              onPressed: () {}, child: Text('读取参数')))),
-                  Expanded(
-                      child: Container(
-                          margin: const EdgeInsets.all(8.0),
-                          child: ElevatedButton(
-                              onPressed: () {}, child: Text('写入参数')))),
-                ],
-              ),
+  Widget buildContainer(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 100,
+            child: Builder(
+              builder: (BuildContext context) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                        child: Container(
+                            margin: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  BlocProvider.of<NumberTriviaBloc>(context)
+                                      .add(IAE203UpdateParamsEvent("test"));
+                                },
+                                child: Text('读取参数')))),
+                    Expanded(
+                        child: Container(
+                            margin: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(
+                                onPressed: () {}, child: Text('写入参数')))),
+                  ],
+                );
+              },
             ),
-            Placeholder(
-              color: Colors.blue,
-            ),
-          ],
-        ),
+          ),
+          Placeholder(
+            color: Colors.blue,
+          ),
+        ],
       ),
     );
   }

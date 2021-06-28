@@ -30,6 +30,7 @@ class Error extends NumberTriviaState {
   List<Object> get props => [message];
 }
 
+// 收到数据需要更新的状态定义
 class DataUpdateState extends NumberTriviaState {
   final String alarm;
   final String id;
