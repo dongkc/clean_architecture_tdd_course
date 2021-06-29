@@ -52,7 +52,7 @@ class _NumberTriviaPageState extends State<NumberTriviaPage> {
               NavigationRailDestination(
                 icon: Icon(Icons.favorite_border),
                 selectedIcon: Icon(Icons.favorite),
-                label: Text('First'),
+                label: Text('IAE203'),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.bookmark_border),
