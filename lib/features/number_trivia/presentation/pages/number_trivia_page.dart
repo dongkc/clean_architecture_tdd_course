@@ -87,12 +87,12 @@ class _NumberTriviaPageState extends State<NumberTriviaPage> {
               NavigationRailDestination(
                 icon: Icon(Icons.bookmark_border),
                 selectedIcon: Icon(Icons.book),
-                label: Text('Second'),
+                label: Text('IAM702'),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.star_border),
                 selectedIcon: Icon(Icons.star),
-                label: Text('Third'),
+                label: Text('Help'),
               ),
             ],
           ),
