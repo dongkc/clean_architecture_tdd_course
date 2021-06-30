@@ -1,3 +1,4 @@
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'features/number_trivia/presentation/pages/number_trivia_page.dart';
 import 'injection_container.dart' as di;
@@ -7,6 +8,13 @@ void main() async {
 
   await di.init();
   runApp(MyApp());
+
+  doWhenWindowReady(() {
+    var initialSize = Size(1280, 720);
+    appWindow.size = initialSize;
+    appWindow.minSize = initialSize;
+  });
+
 }
 
 class MyApp extends StatelessWidget {
