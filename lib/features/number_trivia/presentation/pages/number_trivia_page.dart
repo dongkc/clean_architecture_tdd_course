@@ -4,6 +4,7 @@ import 'package:clean_architecture_tdd_course/features/number_trivia/presentatio
 import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 
 import '../../../../injection_container.dart';
 import '../../../../global.dart';
@@ -25,12 +26,41 @@ class _NumberTriviaPageState extends State<NumberTriviaPage> {
     var size = queryData.size;
     print('pixel width: ${size.width}');
     print('pixel height: ${size.height}');
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text('demo'),
-      ),
-      body: buildBody(context),
-    );
+        appBar: AppBar(
+          title: IntrinsicHeight(
+            child: Row(
+              children: [
+                Text("Demos"),
+                Expanded(
+                  child: MoveWindow(),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.add_alert),
+                  tooltip: 'Show Snackbar',
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('This is a snackbar')));
+                  },
+                ),
+                WindowButtons(),
+              ],
+            ),
+          ),
+        ),
+        // drawer: Drawer(),
+        body: buildBody(context),
+        bottomNavigationBar: BottomAppBar(
+          child: Row(
+            children: [
+              // IconButton(icon: Icon(Icons.menu), onPressed: () {}),
+              // Spacer(),
+              // IconButton(icon: Icon(Icons.search), onPressed: () {}),
+              // IconButton(icon: Icon(Icons.more_vert), onPressed: () {}),
+            ],
+          ),
+        ));
   }
 
   BlocProvider<NumberTriviaBloc> buildBody(BuildContext context) {
