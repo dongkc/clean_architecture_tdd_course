@@ -97,24 +97,17 @@ class _NumberTriviaPageState extends State<NumberTriviaPage> {
             ],
           ),
           const VerticalDivider(thickness: 1, width: 1),
-          Container(
-            width: 400,
-            // child: buildCard1(),
-            child: buildCard2(context),
+          Expanded(
+            child: Row(
+              children: [
+                Container(
+                  width: 400,
+                  child: buildCard2(context),
+                ),
+                IAE203Controls(),
+              ],
+            ),
           ),
-          // Row(
-          //   children: [
-          //     Placeholder(fallbackWidth: 300),
-          //     // Expanded(
-          //       // child: Placeholder(),
-          //     // ),
-          //   ],
-          // ),
-          IAE203Controls(),
-          // Container(width: 300, child: buildColumn()),
-          // Expanded(
-          //   child: buildContainer(context),
-          // ),
         ],
       ),
     );
