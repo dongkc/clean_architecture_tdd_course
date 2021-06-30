@@ -36,6 +36,26 @@ class _NumberTriviaPageState extends State<NumberTriviaPage> {
                 Expanded(
                   child: MoveWindow(),
                 ),
+                DropdownButton(
+                    icon: const Icon(Icons.arrow_downward, color: Colors.white),
+                    // iconSize: 44,
+                    elevation: 16,
+                    style: const TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                    underline: Container(
+                      height: 2,
+                      color: Colors.white,
+                    ),
+                    value: 'COM1',
+                    items: ['COM1', 'COM2', 'COM3']
+                        .map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList()),
                 IconButton(
                   icon: const Icon(Icons.add_alert),
                   tooltip: 'Show Snackbar',
