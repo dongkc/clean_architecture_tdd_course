@@ -16,6 +16,7 @@ class NumberTriviaPage extends StatefulWidget {
 
 class _NumberTriviaPageState extends State<NumberTriviaPage> {
   int _selectedIndex = 0;
+  String _selectPort = 'COM1';
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +38,7 @@ class _NumberTriviaPageState extends State<NumberTriviaPage> {
                   child: MoveWindow(),
                 ),
                 DropdownButton(
+                    value: _selectPort,
                     icon: const Icon(Icons.arrow_downward, color: Colors.white),
                     // iconSize: 44,
                     elevation: 16,
@@ -48,7 +50,11 @@ class _NumberTriviaPageState extends State<NumberTriviaPage> {
                       height: 2,
                       color: Colors.white,
                     ),
-                    value: 'COM1',
+                    onChanged: (String newValue) {
+                      setState(() {
+                        _selectPort = newValue;
+                      });
+                    },
                     items: ['COM1', 'COM2', 'COM3']
                         .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
