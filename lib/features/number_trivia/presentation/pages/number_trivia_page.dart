@@ -29,52 +29,7 @@ class _NumberTriviaPageState extends State<NumberTriviaPage> {
     print('pixel height: ${size.height}');
 
     return Scaffold(
-        appBar: AppBar(
-          title: IntrinsicHeight(
-            child: Row(
-              children: [
-                Text("Demos"),
-                Expanded(
-                  child: MoveWindow(),
-                ),
-                DropdownButton(
-                    value: _selectPort,
-                    icon: const Icon(Icons.arrow_downward, color: Colors.white),
-                    // iconSize: 44,
-                    elevation: 16,
-                    style: const TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                    underline: Container(
-                      height: 2,
-                      color: Colors.white,
-                    ),
-                    onChanged: (String newValue) {
-                      setState(() {
-                        _selectPort = newValue;
-                      });
-                    },
-                    items: ['COM1', 'COM2', 'COM3']
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList()),
-                IconButton(
-                  icon: const Icon(Icons.add_alert),
-                  tooltip: 'Show Snackbar',
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('This is a snackbar')));
-                  },
-                ),
-                WindowButtons(),
-              ],
-            ),
-          ),
-        ),
+        appBar: buildAppBar(context),
         // drawer: Drawer(),
         body: buildBody(context),
         bottomNavigationBar: BottomAppBar(
@@ -87,6 +42,62 @@ class _NumberTriviaPageState extends State<NumberTriviaPage> {
             ],
           ),
         ));
+  }
+
+  AppBar buildAppBar(BuildContext context) {
+    return AppBar(
+        title: IntrinsicHeight(
+          child: buildAppBarRow(context),
+        ),
+      );
+  }
+
+ BlocProvider<NumberTriviaBloc> buildAppBarRow(BuildContext context) {
+    return BlocProvider(
+      create: (_) => sl<NumberTriviaBloc>(),
+      child: Row(
+            children: [
+              Text("Demos"),
+              Expanded(
+                child: MoveWindow(),
+              ),
+              DropdownButton(
+                  value: _selectPort,
+                  icon: const Icon(Icons.arrow_downward, color: Colors.white),
+                  // iconSize: 44,
+                  elevation: 16,
+                  style: const TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                  underline: Container(
+                    height: 2,
+                    color: Colors.white,
+                  ),
+                  onChanged: (String newValue) {
+                    setState(() {
+                      _selectPort = newValue;
+                    });
+                  },
+                  items: ['COM1', 'COM2', 'COM3']
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList()),
+              IconButton(
+                icon: const Icon(Icons.add_alert),
+                tooltip: 'Show Snackbar',
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('This is a snackbar')));
+                },
+              ),
+              WindowButtons(),
+            ],
+          ),
+    );
   }
 
   BlocProvider<NumberTriviaBloc> buildBody(BuildContext context) {
